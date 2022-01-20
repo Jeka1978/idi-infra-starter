@@ -12,6 +12,12 @@ import org.springframework.context.annotation.Configuration;
 @ConditionalOnProperty(value = "idi.logging",havingValue = "true")
 @EnableConfigurationProperties(InfraProperties.class)
 public class IdiInfraConfig {
+
+    @Bean
+    public FrontendControllerAnnotationSupport frontendControllerAnnotationSupport(){
+        return new FrontendControllerAnnotationSupport();
+    }
+
     @Bean
     public IdiLogger idiLogger(){
         return new IdiLogger();
